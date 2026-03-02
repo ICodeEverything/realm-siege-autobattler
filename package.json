@@ -1,0 +1,15 @@
+{
+  "name": "clash-lanes-autobattler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate:assets": "python scripts/generate_pixel_assets.py",
+    "start": "python -m http.server 5173",
+    "test:sim": "node scripts/smoke_simulation.mjs",
+    "test:playwright:smoke": "node scripts/run_playwright_smoke.mjs --url http://127.0.0.1:5173 --click-selector \"#start-btn\" --actions-file tests/actions/smoke_turns.json --iterations 10 --pause-ms 260 --screenshot-dir output/web-game"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0"
+  }
+}

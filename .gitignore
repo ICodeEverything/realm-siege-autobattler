@@ -1,0 +1,8 @@
+node_modules/
+output/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.tmp
+*.log

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Clash Lanes: Realm Siege</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-hud">
+        <div class="structure-grid enemy">
+          <div class="pill enemy" id="enemy-left-pill"><span>Enemy Left</span><strong id="enemy-left-hp">700</strong></div>
+          <div class="pill enemy" id="enemy-center-pill"><span>Enemy Center</span><strong id="enemy-center-hp">760</strong></div>
+          <div class="pill enemy" id="enemy-right-pill"><span>Enemy Right</span><strong id="enemy-right-hp">700</strong></div>
+          <div class="pill enemy home" id="enemy-home-pill"><span>Enemy Home</span><strong id="enemy-home-hp">900</strong></div>
+        </div>
+
+        <div class="match-center">
+          <h1>Realm Siege Alpha</h1>
+          <div class="match-meta">
+            <span id="turn-label">Turn 1</span>
+            <span id="phase-label">Draft</span>
+            <span id="match-timer">03:00</span>
+            <span id="deploy-timer">14.0s</span>
+            <span id="mana-ramp">x2</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="board-wrap">
+        <canvas id="game-canvas" width="390" height="520" aria-label="Realm Siege battlefield"></canvas>
+      </main>
+
+      <section class="deck-panel">
+        <div class="cards-title-wrap">
+          <strong id="cards-title">Draft Pool</strong>
+          <div class="deck-counters">
+            <span>Hand / Deck <strong id="player-hand-deck">0 / 0</strong></span>
+            <span>Discard / Pick <strong id="player-discard-pick">0 / 0</strong></span>
+          </div>
+        </div>
+        <div id="cards-grid" class="cards-grid"></div>
+      </section>
+
+      <section class="control-panel">
+        <div class="structure-grid player">
+          <div class="pill player" id="player-left-pill"><span>Player Left</span><strong id="player-left-hp">700</strong></div>
+          <div class="pill player" id="player-center-pill"><span>Player Center</span><strong id="player-center-hp">760</strong></div>
+          <div class="pill player" id="player-right-pill"><span>Player Right</span><strong id="player-right-hp">700</strong></div>
+          <div class="pill player home" id="player-home-pill"><span>Player Home</span><strong id="player-home-hp">900</strong></div>
+        </div>
+
+        <div class="status-row compact">
+          <div class="energy-box">
+            <span class="energy-label">Energy</span>
+            <div class="energy-bar"><div id="player-energy-fill"></div></div>
+            <span id="player-energy-text">4 / 12</span>
+          </div>
+          <div class="energy-box enemy">
+            <span class="energy-label">Enemy Energy</span>
+            <div class="energy-bar"><div id="enemy-energy-fill"></div></div>
+            <span id="enemy-energy-text">4 / 12</span>
+          </div>
+        </div>
+
+        <div class="status-row compact">
+          <div class="mini-box"><span>Towers Alive</span><strong id="player-tower-count">3</strong></div>
+          <div class="mini-box enemy"><span>Enemy Towers</span><strong id="enemy-tower-count">3</strong></div>
+        </div>
+
+        <div class="action-row">
+          <button id="restart-btn" type="button" class="action-btn">Restart (R)</button>
+          <button id="settings-btn" type="button" class="action-btn">Settings</button>
+          <button id="fullscreen-btn" type="button" class="action-btn">Fullscreen (F)</button>
+        </div>
+        <p id="message-line" class="message-line"></p>
+      </section>
+    </div>
+
+    <div id="overlay" class="overlay is-visible" role="dialog" aria-modal="true">
+      <div class="overlay-card">
+        <h2 id="overlay-title">Realm Siege Draft Alpha</h2>
+        <p id="overlay-text">
+          Build your deck with alternating picks, then drag cards onto your side of the battlefield to summon.
+        </p>
+        <p class="controls-copy">
+          Mobile/Desktop: drag hand cards to deploy. Keyboard fallback: A/D, Q/W/E, 1-9, Space.
+        </p>
+        <button id="start-btn" type="button" class="overlay-btn">Start Draft</button>
+      </div>
+    </div>
+
+    <div id="settings-panel" class="settings-panel">
+      <label><input id="toggle-reduced-motion" type="checkbox" /> Reduced Motion</label>
+      <label><input id="toggle-sfx" type="checkbox" checked /> UI Sound FX</label>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
